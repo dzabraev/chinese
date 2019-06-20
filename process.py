@@ -94,6 +94,7 @@ def main():
     output_tex_c = 'chinese-ch.tex'
     output_tex_p = 'chinese-pinyin.tex'
     output_tex_r = 'chinese-rus.tex'
+    output_dir = 'pdf'
 
     tex = BEGIN_DOCUMENT
     tex_c = BEGIN_DOCUMENT
@@ -125,17 +126,17 @@ def main():
 
     with open(output_tex, 'w') as f:
         f.write(tex)
-    os.system('pdflatex %s' % output_tex)
+    os.system('pdflatex -output-directory=%s %s' % (output_dir, output_tex))
 
     with open(output_tex_c, 'w') as f:
         f.write(tex_c)
-    os.system('pdflatex %s' % output_tex_c)
+    os.system('pdflatex -output-directory=%s %s' % (output_dir, output_tex_c))
     with open(output_tex_p, 'w') as f:
         f.write(tex_p)
-    os.system('pdflatex %s' % output_tex_p)
+    os.system('pdflatex -output-directory=%s %s' % (output_dir, output_tex_p))
     with open(output_tex_r, 'w') as f:
         f.write(tex_r)
-    os.system('pdflatex %s' % output_tex_r)
+    os.system('pdflatex -output-directory=%s %s' % (output_dir, output_tex_r))
 
 
 if __name__ == "__main__":
